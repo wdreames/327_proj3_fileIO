@@ -17,13 +17,13 @@ using namespace std;
 //SUCCESS all worked, contents string contains all in the file
 //COULD_NOT_OPEN_FILE_TO_READ contents string is cleared
 int KP_FileIO::getFileContents(const std::string &filename, std::string &contents){
-	// Make sure 'contents' is empty
+	//Makes sure contents is empty
 	if(contents.size()==0){
 		fstream inputFile;
 		inputFile.open(filename, ios::in);
-		// Check that the file is opened, or return an error
+		//Makes sure the file opened properly
 		if(inputFile.is_open()){
-			// Append data to 'contents'
+			//Append data to contents
 			string line;
 			while(!inputFile.eof()){
 				getline(inputFile, line);
@@ -44,6 +44,7 @@ int KP_FileIO::writeVectortoFile(const std::string filename,std::vector<std::str
 {
 	fstream outputFile;
 	outputFile.open(filename, ios::out);
+	//Makes sure the file opened properly
 	if(outputFile.is_open()){
 		//iterates over the entry vector
 		for(vector<string>::iterator iter = myEntryVector.begin(); iter != myEntryVector.end(); ++iter){
