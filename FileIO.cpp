@@ -1,8 +1,8 @@
 /*
  * FileReader.cpp
  *
- *  Created on: Oct 8, 2017
- *      Author: keith
+ *  Created on: Apr 10, 2020
+ *      Author: William Reames
  */
 #include <iostream>
 #include <fstream>
@@ -42,17 +42,12 @@ int KP_FileIO::getFileContents(const std::string &filename, std::string &content
 //COULD_NOT_OPEN_FILE_TO_WRITE
 int KP_FileIO::writeVectortoFile(const std::string filename,std::vector<std::string> &myEntryVector)
 {
-	//Open up 'filename' to write
-	//Check that the file opened, or return an error
-	// Loop through the vector via iterators
-		//Push each entry to the file
-	// Once finished, close the file if its open
-	// Exit function
-
 	fstream outputFile;
 	outputFile.open(filename, ios::out);
 	if(outputFile.is_open()){
+		//iterates over the entry vector
 		for(vector<string>::iterator iter = myEntryVector.begin(); iter != myEntryVector.end(); ++iter){
+			//outputs the data
 			outputFile << *iter << "\n";
 		}
 		outputFile.close();
